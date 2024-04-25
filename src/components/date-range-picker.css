@@ -1,0 +1,111 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  margin: 0;
+  background-color: #f0f0f0;
+  padding: 5px;
+}
+
+.daterangepicker {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.12), 0 0 10px rgba(0, 0, 0, 0.06);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.daterangepicker__input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  height: 28px;
+  width: 250px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.daterangepicker__input:focus {
+  outline: 2px solid #3c84cb;
+}
+
+.daterangepicker .datepicker__content {
+  width: fit-content;
+  position: absolute;
+  top: 61px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.12), 0 0 10px rgba(0, 0, 0, 0.06);
+  z-index: 7;
+}
+
+.daterangepicker .datepicker__content .datepicker__header p {
+  font-size: 14px;
+}
+.daterangepicker .datepicker__content .datepicker__calendar {
+  display: flex;
+  border: 1px solid #ccc;
+}
+
+.daterangepicker .datepicker__content .datepicker__calendar > div {
+  padding: 5px;
+}
+
+.daterangepicker .datepicker__content .datepicker__calendar > div:first-child {
+  border-right: 1px solid #ccc;
+  padding-right: 15px;
+}
+
+.daterangepicker .datepicker__content .datepicker__calendar > div:last-child {
+  padding-left: 15px;
+}
+
+.daterangepicker .datepicker__footer {
+  display: flex;
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.daterangepicker .datepicker__footer .datepicker__predefined {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  flex-grow: 1;
+}
+
+.daterangepicker .datepicker__footer .datepicker__predefined button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 3px;
+  background: none;
+  color: #0056b3;
+  cursor: pointer;
+}
+
+.daterangepicker .datepicker__footer .datepicker__predefined button:hover {
+  text-decoration: underline;
+}
+
+.daterangepicker .datepicker__footer .datepicker__actions button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #9fc8f4;
+  color: #fff;
+}
+.daterangepicker
+  .datepicker__footer
+  .datepicker__actions
+  button:not(:disabled) {
+  background-color: #0e73df;
+  color: #fff;
+}

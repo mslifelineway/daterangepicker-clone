@@ -1,0 +1,97 @@
+.calendar {
+  width: fit-content;
+}
+
+.calendar .calendar__days,
+.calendar .calendar__dates {
+  display: grid;
+  grid-template-columns: repeat(7, 30px);
+  gap: 1px;
+}
+
+.calendar .calendar__days span {
+  color: #838181;
+  text-transform: capitalize;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.calendar .calendar__selected-date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar .calendar__selected-date .calendar__selected-yr_month {
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555454;
+}
+.calendar .calendar__selected-date .calendar__selected-yr_month:hover {
+  background-color: #eee;
+}
+
+.calendar .calendar__selected-date button {
+  background-color: transparent;
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  border-radius: 8px;
+}
+
+.calendar .calendar__selected-date button:hover {
+  background-color: #eee;
+}
+
+.calendar__days,
+.calendar__dates {
+  display: grid;
+  grid-template-columns: repeat(7, 30px);
+  margin-block: 10px;
+}
+
+.calendar__days span {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.calendar__dates button {
+  color: #000;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.calendar__dates button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+}
+
+.calendar__dates button:hover {
+  background: #b8dbfe;
+}
+
+.calendar__dates button.selected {
+  background: #3498ff;
+  color: #fff;
+}
+
+.calendar__dates button.today {
+  border: 1px solid #1870c7;
+}
+
+.calendar__dates button.in-range {
+  background-color: #e3f1ff;
+}
