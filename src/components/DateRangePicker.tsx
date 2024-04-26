@@ -111,16 +111,16 @@ const DateRangePicker = () => {
     updateSecondCalendarData();
   }, [updateSecondCalendarData]);
 
-  useEffect(() => {
-    if (startDate && endDate) {
-      setDateRangePickerData((prev) => ({
-        ...prev,
-        datesInRange: getDatesInRange(startDate, endDate),
-      }));
-    } else {
-      setDateRangePickerData(initialDateRangePickerData);
-    }
-  }, [startDate, endDate]);
+  // useEffect(() => {
+  //   if (startDate && endDate) {
+  //     setDateRangePickerData((prev) => ({
+  //       ...prev,
+  //       datesInRange: getDatesInRange(startDate, endDate),
+  //     }));
+  //   } else {
+  //     setDateRangePickerData(initialDateRangePickerData);
+  //   }
+  // }, [startDate, endDate]);
 
   const handleDateSelect = (
     e: React.MouseEvent<HTMLElement>,
@@ -192,7 +192,16 @@ const DateRangePicker = () => {
 
   const applyDateRange = () => {
     if (!hasDateRangeSelected) return;
-    setDateRangePickerData((prev) => ({ ...prev, startDate, endDate }));
+    if (startDate && endDate) {
+      setDateRangePickerData((prev) => ({
+        ...prev,
+        startDate,
+        endDate,
+        datesInRange: getDatesInRange(startDate, endDate),
+      }));
+    } else {
+      setDateRangePickerData(initialDateRangePickerData);
+    }
     setShowCalendar(false);
     setPredefinedDate(EPredefinedDates.NONE);
   };
@@ -206,6 +215,7 @@ const DateRangePicker = () => {
           setEndDate(today);
           setDateRangePickerData((prev) => ({
             ...prev,
+            datesInRange: [],
             startDate: today,
             endDate: today,
           }));
@@ -216,6 +226,7 @@ const DateRangePicker = () => {
           setEndDate(today);
           setDateRangePickerData((prev) => ({
             ...prev,
+            datesInRange: [],
             startDate: today,
             endDate: today,
           }));
@@ -226,6 +237,7 @@ const DateRangePicker = () => {
           setEndDate(endDate);
           setDateRangePickerData((prev) => ({
             ...prev,
+            datesInRange: getDatesInRange(startDate, endDate),
             startDate: startDate,
             endDate: endDate,
           }));
@@ -285,11 +297,13 @@ const DateRangePicker = () => {
           </div>
         )}
       </div>
-      <ul>
-        {dateRangePickerData.datesInRange.map((d: Date, idx) => (
-          <li key={idx}>{d.toDateString()}</li>
-        ))}
-      </ul>
+      {dateRangePickerData.datesInRange.length > 0 ? (
+        <ul className="daterangepicker__selected-dates--list">
+          {dateRangePickerData.datesInRange.map((d: Date, idx) => (
+            <li key={idx}>{d.toDateString()}</li>
+          ))}
+        </ul>
+      ) : null}
     </div>
   );
 };

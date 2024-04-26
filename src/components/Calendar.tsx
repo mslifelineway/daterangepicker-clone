@@ -76,7 +76,7 @@ const Calendar = (props: CalendarProps) => {
 
     if (isToday && !type && !disabled) className += " today";
     if (isSelected && !type && !disabled) className += " selected";
-    if (isInRange) className += " in-range";
+    if (isInRange && !type && !disabled) className += " in-range";
 
     const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
       handleDateSelect(e, id);
